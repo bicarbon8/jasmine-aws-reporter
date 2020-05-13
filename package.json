@@ -1,0 +1,34 @@
+{
+  "name": "jasmine-aws-reporter",
+  "version": "1.0.0",
+  "description": "a test reporter plugin for Jasmine that is capable of submitting test results to AWS systems such as Kinesis Firehose and Elasticsearch",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jasmine ./test/*-spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bicarbon8/jasmine-aws-reporter.git"
+  },
+  "keywords": [
+    "jasmine",
+    "aws",
+    "reporter",
+    "plugin",
+    "kinesis",
+    "elasticsearch"
+  ],
+  "author": "bicarbon8@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bicarbon8/jasmine-aws-reporter/issues"
+  },
+  "homepage": "https://github.com/bicarbon8/jasmine-aws-reporter#readme",
+  "dependencies": {
+    "aws-sdk": "^2.675.0",
+    "chalk": "^4.0.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}
