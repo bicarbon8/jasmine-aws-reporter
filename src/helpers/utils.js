@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 
 var out = (level, text) => {
-    console.log('\n', chalk.blue.underline.bold('(AWS Kinesis Reporter)'));
+    console.log('\n', chalk.blue.underline.bold('(AWS Reporter)'));
     switch (level) {
         case 'error':
             console.error('\n', chalk.bold.red(' - ' + text) + '\n');
@@ -21,11 +21,10 @@ module.exports = {
     titleToCaseIds: (title) => {
         var caseIds = [];
     
-        var testCaseIdRegExp = /\bC(\d+)\b/g;
+        var testCaseIdRegExp = /\b(C\d+)\b/g;
         var m;
         while ((m = testCaseIdRegExp.exec(title)) !== null) {
-            let caseId = parseInt(m[1]);
-            caseIds.push(caseId);
+            caseIds.push(m[1]);
         }
         return caseIds;
     },

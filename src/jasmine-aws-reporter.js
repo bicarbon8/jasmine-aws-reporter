@@ -16,15 +16,15 @@ class JasmineAwsReporter {
             if (!err) {
                 err = '';
             }
-            err += result.failedExpectations[i].message + '\n';
-                + result.failedExpectations[i].stack;
+            err += result.failedExpectations[i].message + '\n'
+                + result.failedExpectations[i].stack + '\n';
         }
         for (var i=0; i<caseIds.length; i++) {
             var id = caseIds[i];
             var r = this.createResultFromTest(result, id, err);
             results.push(r);
         }
-        await this.sendResults(result.fullName, results);
+        await this.sendResults(result.fullName, ...results);
     }
 
     createResultFromTest(test, id, err) {
@@ -48,8 +48,8 @@ class JasmineAwsReporter {
         return testResult;
     }
 
-    async sendResults(testFullName, resultRecords) {
-        this.kinesisApi.sendResults(testFullName, resultRecords);
+    async sendResults(testFullName, ...resultRecords) {
+        await this.kinesisApi.sendResults(testFullName, ...resultRecords);
     }
   }
 

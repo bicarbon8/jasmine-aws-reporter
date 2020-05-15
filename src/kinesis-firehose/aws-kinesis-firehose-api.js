@@ -21,14 +21,19 @@ class AwsKinesisFirehoseApi {
                 DeliveryStreamName: this.options.kinesisfirehose_deliverystream
             };
             await new Promise((resolve, reject) => {
-                this.client.putRecord(record, (err, data) => {
-                    if (err) {
-                        utils.warn(`unable to publish record '${JSON.stringify(record)}' to AWS Kinesis due to: ${err}`);
-                    } else {
-                        sent++;
-                    }
+                try {
+                    this.client.putRecord(record, (err, data) => {
+                        if (err) {
+                            utils.warn(`unable to publish record '${JSON.stringify(record)}' to AWS Kinesis due to: ${err}`);
+                        } else {
+                            sent++;
+                        }
+                        resolve();
+                    });
+                } catch (e) {
+                    utils.warn(`unable to publish record '${JSON.stringify(record)}' to AWS Kinesis due to: ${e}`);
                     resolve();
-                });
+                }
             });
         }
         utils.log(`Published '${sent}' result(s) for: ${testName}.`);
