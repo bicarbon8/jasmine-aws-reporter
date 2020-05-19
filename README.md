@@ -39,7 +39,7 @@ it('Can authenticate C123C234 as a valid user', () => {...});
 
 ## Test Result Records
 the test results are transmitted to AWS using the following format:
-```json
+```javascript
 {
     "Created": "YYYY-MM-DD:HH:mm:ss.mmmZ",
     "TestId": "C123", // or null if none exists
