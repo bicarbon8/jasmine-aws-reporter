@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/bicarbon8/jasmine-aws-reporter#readme",
   "dependencies": {
-    "aws-sdk": "^2.675.0",
+    "aws-sdk": "^2.814.0",
     "chalk": "^4.0.0"
   },
   "devDependencies": {
